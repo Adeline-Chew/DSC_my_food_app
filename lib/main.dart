@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:my_food/homepage/homePage.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(MyApp()); 
 
 class MyApp extends StatelessWidget {
   @override
