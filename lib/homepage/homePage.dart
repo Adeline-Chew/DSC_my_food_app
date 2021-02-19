@@ -8,9 +8,9 @@ import 'package:percent_indicator/circular_percent_indicator.dart';
 // 3) Get the donation progress to update the percentage
 // 4) Page navigation for the first and second tiles
 
-void main() {
-  runApp(MyApp());
-}
+// void main() {
+//   runApp(MyApp());
+// }
 
 class MyApp extends StatelessWidget {
   @override
