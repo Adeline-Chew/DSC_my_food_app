@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_food/bottom_navigation_bar.dart';
+import 'package:my_food/common_widgets/bottom_navigation_bar.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 // TO-DO-List
@@ -141,7 +141,6 @@ class GoogleDeveloperHomePage extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: this._homePageAppBar(),
-        bottomNavigationBar: CustomBottomNavigationBar(0),
         body: Padding(
             padding: EdgeInsets.all(20),
             child: Column(children: <Widget>[
@@ -149,11 +148,6 @@ class GoogleDeveloperHomePage extends StatelessWidget {
               this._secondSection(context)
             ])));
   }
-
-  // @override
-  // State<StatefulWidget> createState() {
-  //   return _HomeState();
-  // }
 }
 
 // Used for testing out page navigation

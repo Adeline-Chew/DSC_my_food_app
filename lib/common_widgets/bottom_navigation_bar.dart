@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import '../homepage/app.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
-  CustomBottomNavigationBar(this.index) : assert(index != null);
-  // final Color color = Color(0xFFFFCCBC);
+  CustomBottomNavigationBar({@required this.currentTab, @required this.onSelectTab});
   final Color color = Colors.teal[700];
-  final int index;
+  final TabItem currentTab;
+  final ValueChanged<TabItem> onSelectTab;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,10 @@ class CustomBottomNavigationBar extends StatelessWidget {
       showUnselectedLabels: false,
       selectedIconTheme: IconThemeData(color: this.color, size: 25.0),
       unselectedIconTheme: IconThemeData(color: this.color, size: 25.0),
-      currentIndex: index,
+      // currentIndex: this.index,
+      onTap: (index) => onSelectTab(
+        TabItem.values[index],
+      ),
 
       items: [
         BottomNavigationBarItem(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:my_food/homepage/app.dart';
 import 'package:my_food/homepage/homePage.dart';
 import 'package:my_food/sign_in_page.dart';
 
@@ -24,6 +25,6 @@ class _LandingPageState extends State<LandingPage> {
         onSignIn: _updateUser,
       );
     }
-    return GoogleDeveloperHomePage();
+    return App();
   }
 }
