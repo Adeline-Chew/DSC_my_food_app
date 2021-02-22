@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_food/food/share_food.dart';
 import '../homepage/app.dart';
 import '../homepage/homePage.dart';
+import '../settings/settings_page.dart';
 
 class TabNavigatorRoutes {
   static const String root = '/';
@@ -70,6 +71,7 @@ class ListOfPages extends StatelessWidget{
         break;
       case TabItem.settings:
         // TODO: Handle this case.
+        retVal = SettingsPage();
         break;
     break;}
     return retVal;
