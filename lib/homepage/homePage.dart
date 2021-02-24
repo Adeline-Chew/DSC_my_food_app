@@ -1,8 +1,26 @@
-import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
-final TextStyle subTextStyle = TextStyle(fontSize: 20.0, color: Colors.black);
+import 'currentDate.dart';
+
+// Colors used
+final Color defaultFontColor = Colors.black;
+final Color defaultColor = Colors.deepOrange[100];
+final Color defaultBackgroundColor = Colors.white;
+
+// Sizes used
+final double defaultCircularRadius = 10.0;
+final double defaultFontSize = 20.0;
+
+// Styles used
+final TextStyle defaultTextStyle =
+    TextStyle(fontSize: defaultFontSize, color: defaultFontColor);
+final TextStyle secondaryTextStyle =
+    TextStyle(fontSize: 15.0, color: defaultFontColor);
+final BoxDecoration defaultContainerDecoration = BoxDecoration(
+    color: defaultColor,
+    borderRadius: BorderRadius.all(Radius.circular(defaultCircularRadius)));
 
 class MyApp extends StatelessWidget {
   @override
@@ -15,33 +33,45 @@ class MyApp extends StatelessWidget {
 }
 
 class GoogleDeveloperHomePage extends StatelessWidget {
+  final String myDashboard = "My Dashboard";
+
   // Implementation of the AppBar.
   AppBar _homePageAppBar() {
     return AppBar(
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
-        bottom: Radius.circular(10.0),
+        bottom: Radius.circular(defaultCircularRadius),
       )),
-      backgroundColor: Color(0xFFFFCCBC),
+      backgroundColor: defaultColor,
       toolbarHeight: 100.0,
-      title: Column(
-        // Alligns such that text in column starts from the left
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Container(
-              child: Text("Welcome back, RandomPerson",
-                  style: TextStyle(fontSize: 25.0, color: Colors.black)),
-              // padding separates the top and bottom texts
-              padding: EdgeInsets.only(bottom: 20.0)),
-          CurrentDate()
-        ],
-      ),
+      title: Row(children: <Widget>[
+        Container(
+            child: Column(
+          // Alligns such that text in column starts from the left
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Container(
+                child: Text(myDashboard, style: defaultTextStyle),
+                // padding separates the top and bottom texts
+                padding: EdgeInsets.only(bottom: 20.0)),
+            CurrentDate()
+          ],
+        )),
+        Container(
+            child: SizedBox(
+                height: 100.0,
+                width: 100.0,
+                child: Image.asset('lib/image/Logo.png')))
+      ], mainAxisAlignment: MainAxisAlignment.spaceBetween),
     );
   }
 
   // Implementation of the first tile.
   Widget _firstSection(BuildContext context) {
-    // Not sure how to use InkWell fully yet
+    final String myDonations = "My Donations";
+    final String donated = "Donated: ";
+    final String target = "Target: ";
+
     return InkWell(
         // Link to another page
         onTap: () => {
@@ -50,22 +80,18 @@ class GoogleDeveloperHomePage extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => RandomPage()))
             },
         child: Container(
-            height: 180.0,
-            color: Colors.white,
-            child: Column(  // ListView
-              // crossAxisAlignment: CrossAxisAlignment.start,
+            height: 190.0,
+            color: defaultBackgroundColor,
+            child: Column(
               children: <Widget>[
-                // The text is 23 pixels in height
                 Container(
-                  alignment: Alignment.centerLeft,
-                    child: Text("My Donations",
-                        style: subTextStyle),
+                    alignment: Alignment.centerLeft,
+                    // The text is 23 pixels in height
+                    child: Text(myDonations, style: defaultTextStyle),
                     padding: EdgeInsets.only(bottom: 10.0)),
                 Container(
-                  decoration: BoxDecoration(
-                        color: Color(0xFFFFCCBC),
-                        borderRadius: BorderRadius.all(Radius.circular(10.0))),
-                    height: 147.0,
+                    decoration: defaultContainerDecoration,
+                    height: 145.0,
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
@@ -80,20 +106,19 @@ class GoogleDeveloperHomePage extends StatelessWidget {
                                       // Need to include dependency
                                       child: CircularPercentIndicator(
                                         radius: 80.0,
-                                        lineWidth: 5.0,
+                                        lineWidth: 8.0,
                                         percent:
                                             0.6, // need to change this to a variable
-                                        center: Text("60%"),
-                                        progressColor: Colors.white,
+                                        center: Text("60%",
+                                            style: secondaryTextStyle),
+                                        progressColor: defaultBackgroundColor,
                                       ))),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text("Donated: ",
-                                  style: subTextStyle),
-                              Text("Target: ",
-                                  style: subTextStyle)
+                              Text(donated, style: secondaryTextStyle),
+                              Text(target, style: secondaryTextStyle)
                             ],
                           )
                         ]))
@@ -102,39 +127,87 @@ class GoogleDeveloperHomePage extends StatelessWidget {
   }
 
   Widget _secondSection(BuildContext context) {
-    return InkWell(
-        // 0Link to another page
-        onTap: () => {
-              print("Tapped on secondSection!"),
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => RandomPage()))
-            },
-        child: Container(
-            height: 180.0,
-            color: Colors.white,
-            child: Column(  // ListView
-              // crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
+    final double heightAndWidth = 80.0;
+    final String discover = "Discover";
+    final List<String> namesList = [
+      "Food Banks",
+      "Make a Donation",
+      "Events Around You"
+    ];
+    final List<Icon> iconsList = [
+      Icon(FontAwesome.cutlery),
+      Icon(FlutterIcons.charity_mco, size: 30.0),
+      Icon(FontAwesome5.map)
+    ];
+
+    final BoxDecoration asdf = BoxDecoration(
+        color: Colors.pink[50],
+        borderRadius: BorderRadius.all(Radius.circular(defaultCircularRadius)));
+
+    return Container(
+        height: 190.0,
+        color: defaultBackgroundColor,
+        child: Column(
+          children: <Widget>[
+            Container(
+                alignment: Alignment.centerLeft,
                 // The text is 23 pixels in height
-                Container(
-                  alignment: Alignment.centerLeft,
-                    child: Text("Events",
-                        style: subTextStyle),
-                    padding: EdgeInsets.only(bottom: 10.0)),
-                Container(
-                  decoration: BoxDecoration(
-                        color: Color(0xFFFFCCBC),
-                        borderRadius: BorderRadius.all(Radius.circular(10))),
-                  height: 147.0,
-                )
-              ],
-            )));
+                child: Text(discover, style: defaultTextStyle),
+                padding: EdgeInsets.only(bottom: 10.0)),
+            Container(
+              padding: EdgeInsets.all(10.0),
+              decoration: defaultContainerDecoration,
+              height: 145.0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  // Think of another icon, dont reuse
+                  InkWell(
+                      onTap: () => print(namesList[0]),
+                      child: Container(
+                          height: heightAndWidth,
+                          width: heightAndWidth,
+                          decoration: asdf,
+                          child: Tooltip(
+                            message: namesList[0],
+                            child: iconsList[0],
+                            preferBelow: false,
+                          ))),
+                  // Think of another icon, dont reuse
+                  InkWell(
+                      onTap: () => print(namesList[1]),
+                      child: Container(
+                          height: heightAndWidth,
+                          width: heightAndWidth,
+                          decoration: asdf,
+                          child: Tooltip(
+                            message: namesList[1],
+                            child: iconsList[1],
+                            preferBelow: false,
+                          ))),
+                  // Think of another icon, dont reuse
+                  InkWell(
+                      onTap: () => print(namesList[2]),
+                      child: Container(
+                          height: heightAndWidth,
+                          width: heightAndWidth,
+                          decoration: asdf,
+                          child: Tooltip(
+                            message: namesList[2],
+                            child: iconsList[2],
+                            preferBelow: false,
+                          ))),
+                ],
+              ),
+            )
+          ],
+        ));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: defaultBackgroundColor,
         appBar: this._homePageAppBar(),
         body: Padding(
             padding: EdgeInsets.all(20),
@@ -153,7 +226,7 @@ class RandomPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Color(0xFFFFCCBC),
+          backgroundColor: defaultColor,
           toolbarHeight: 100.0,
         ),
         body: Center(
@@ -164,24 +237,5 @@ class RandomPage extends StatelessWidget {
             child: Text('Go back!'),
           ),
         ));
-  }
-}
-
-// Stateful Widget to get the current day and date.
-class CurrentDate extends StatefulWidget {
-  @override
-  _CurrentDateState createState() => _CurrentDateState();
-}
-
-// Stateful Widget to get the current day and date.
-class _CurrentDateState extends State<CurrentDate> {
-  final String dayDateMonthYear =
-      DateFormat('EEEE, d MMM yyyy').format(DateTime.now());
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        child: Text(this.dayDateMonthYear,
-            style: subTextStyle));
   }
 }

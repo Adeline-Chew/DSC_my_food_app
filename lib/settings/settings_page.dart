@@ -31,6 +31,7 @@ class SettingsPage extends StatelessWidget {
           padding: EdgeInsets.all(20.0),
           child: ListView(
             children: <Widget>[
+              // Think twice about this part, a bit messy to update state
               SettingsTiles("Change Username", changeUserName),
               Divider(height: 30.0),
               SettingsTiles("I dunno", changeUserName),
