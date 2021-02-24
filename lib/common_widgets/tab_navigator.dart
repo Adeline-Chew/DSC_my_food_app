@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_food/donation/donation_main_page.dart';
 import 'package:my_food/food/share_food.dart';
+import 'package:my_food/map/main_map_screen.dart';
 import '../homepage/app.dart';
 import '../homepage/homePage.dart';
 import '../settings/settings_page.dart';
@@ -65,7 +66,7 @@ class ListOfPages extends StatelessWidget{
         retVal = ShareFood();
         break;
       case TabItem.map:
-        // TODO: Handle this case.
+        retVal = MapMainScreen();
         break;
       case TabItem.donation:
         retVal = DonationMainPage();
