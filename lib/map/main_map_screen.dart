@@ -22,28 +22,24 @@ class _MapMainScreenState extends State<MapMainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
-        leading: CupertinoNavigationBarBackButton(
-          color: Colors.black,
-          onPressed: () {
-            Navigator.pop(context);
-          },
+    return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.deepOrange[100],
+          title: Text("Map"),
         ),
-      ),
-      child: Stack(
-        children: [
-          GoogleMap(
-            mapType: MapType.normal,
-            myLocationButtonEnabled: true,
-            initialCameraPosition: _kGooglePlex,
-            onMapCreated: (GoogleMapController controller) {
-              _controllerGoogleMap.complete(controller);
-              newGoogleMapController = controller;
-            },
-          ),
-        ],
-      ),
+        body: Stack(
+          children: [
+            GoogleMap(
+              mapType: MapType.normal,
+              myLocationButtonEnabled: true,
+              initialCameraPosition: _kGooglePlex,
+              onMapCreated: (GoogleMapController controller){
+                _controllerGoogleMap.complete(controller);
+                newGoogleMapController = controller;
+              },
+            ),
+          ],
+        )
     );
   }
 }
