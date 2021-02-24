@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_food/donation/donation_main_page.dart';
 import 'package:my_food/food/share_food.dart';
 import '../homepage/app.dart';
 import '../homepage/homePage.dart';
@@ -67,10 +68,9 @@ class ListOfPages extends StatelessWidget{
         // TODO: Handle this case.
         break;
       case TabItem.donation:
-        // TODO: Handle this case.
+        retVal = DonationMainPage();
         break;
       case TabItem.settings:
-        // TODO: Handle this case.
         retVal = SettingsPage();
         break;
     break;}
