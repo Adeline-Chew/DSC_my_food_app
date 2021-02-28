@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_food/donation/donation_common_widgets/event_card_button.dart';
+import 'package:my_food/donation/donation_details.dart';
 
 class DonationMainPage extends StatelessWidget {
   @override
@@ -41,16 +42,37 @@ class DonationMainPage extends StatelessWidget {
         children: <Widget>[
           SizedBox(height: space),
           EventCardButton(
-              eventTitle: "Support Families in Nigeria", context: context),
+              eventTitle: "Support Families in Nigeria",
+              image: "lib/image/donation.jpg",
+              context: context,
+              margin: EdgeInsets.all(8.0),
+              page: DonationDetails(),
+          ),
           Divider(height: space),
           EventCardButton(
-              eventTitle: "Support Families in Nigeria", context: context),
+              eventTitle: "Support Families in Nigeria",
+              image: "lib/image/donation.jpg",
+              context: context,
+              margin: EdgeInsets.all(8.0),
+              page: DonationDetails(),
+          ),
           Divider(height: space),
           EventCardButton(
-              eventTitle: "Support Families in Nigeria", context: context),
+              eventTitle: "Support Families in Nigeria",
+              image: "lib/image/donation.jpg",
+              context: context,
+              margin: EdgeInsets.all(8.0),
+              page: DonationDetails(),
+          ),
           Divider(height: space),
           EventCardButton(
-              eventTitle: "Support Families in Nigeria", context: context),
+              eventTitle: "Support Families in Nigeria",
+              image: "lib/image/donation.jpg",
+              context: context,
+              margin: EdgeInsets.all(8.0),
+              page: DonationDetails(),
+          ),
+          
           SizedBox(height: space),
         ],
       ),
