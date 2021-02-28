@@ -5,6 +5,7 @@ class RiderPickUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
+        resizeToAvoidBottomInset: false,
         navigationBar: CupertinoNavigationBar(
           leading: CupertinoNavigationBarBackButton(
             color: Colors.black87,
@@ -14,17 +15,16 @@ class RiderPickUp extends StatelessWidget {
           ),
           middle: Text("Fill In Your Details"),
         ),
-        child: Column(
+        child: SingleChildScrollView(
+            child: Column(
           children: [
-            SizedBox(
-              height: 100.0,
-            ),
+            Padding(padding: EdgeInsets.all(50.0)),
             Padding(
-              padding: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 8.0),
+              padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
               child: RegisterForm(),
-            ),
+            )
           ],
-        ));
+        )));
   }
 }
 
@@ -41,6 +41,7 @@ class _RegisterFormState extends State<RegisterForm> {
 
   @override
   Widget build(BuildContext context) {
+    int _value;
     return Form(
       key: _formKey,
       child: Column(
@@ -70,6 +71,11 @@ class _RegisterFormState extends State<RegisterForm> {
             decoration:
                 const InputDecoration(labelText: 'Food Item Description'),
           ),
+          const SizedBox(height: 16.0),
+
+          const SizedBox(height: 16.0),
+          Text('Food Photos (Optional)'),
+          const SizedBox(height: 16.0),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: Row(
@@ -87,15 +93,27 @@ class _RegisterFormState extends State<RegisterForm> {
               ],
             ),
           ),
-          Row(
-            children: <Widget>[
-              const Spacer(),
-              OutlineButton(
-                highlightedBorderColor: Colors.black,
+          Align(
+            alignment: Alignment.center,
+            child: SizedBox(
+              height: 45.0,
+              width: 130.0,
+              child: OutlinedButton(
+                style: ButtonStyle(
+                    shape: MaterialStateProperty.all<OutlinedBorder>(
+                        RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(15.0),
+                            side: BorderSide(width: 5)))),
                 onPressed: _submittable() ? _submit : null,
-                child: const Text('Submit'),
+                child: const Text(
+                  'Submit',
+                  style: TextStyle(
+                      fontSize: 26.0,
+                      color: Colors.black87,
+                      fontWeight: FontWeight.w400),
+                ),
               ),
-            ],
+            ),
           ),
         ],
       ),
@@ -118,5 +136,25 @@ class _RegisterFormState extends State<RegisterForm> {
     setState(() {
       _agreedToTOS = newValue;
     });
+  }
+
+  showPicker() {
+    int _value;
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext context) {
+          return CupertinoPicker(
+              children: const [
+                Text("Item01"),
+                Text("Item02"),
+                Text("Item03"),
+              ],
+              itemExtent: 32.0,
+              onSelectedItemChanged: (value) {
+                setState(() {
+                  _value = value;
+                });
+              });
+        });
   }
 }

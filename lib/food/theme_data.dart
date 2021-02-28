@@ -11,6 +11,11 @@ ThemeData buildThemeData() {
     textSelectionColor: Colors.black12,
     cursorColor: Colors.black,
     toggleableActiveColor: Colors.black,
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: OutlinedButton.styleFrom(primary: Colors.black87, side: BorderSide(
+        color: Colors.black87.withOpacity(0.5), width: 1.5,
+      ))
+    ),
     inputDecorationTheme: InputDecorationTheme(
       border: const OutlineInputBorder(
         borderSide: BorderSide(color: Colors.black),
