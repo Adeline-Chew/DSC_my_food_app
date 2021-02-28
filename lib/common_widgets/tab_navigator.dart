@@ -3,7 +3,7 @@ import 'package:my_food/donation/donation_main_page.dart';
 import 'package:my_food/food/share_food.dart';
 import 'package:my_food/map/main_map_screen.dart';
 import '../homepage/app.dart';
-import '../homepage/homePage.dart';
+import '../homepage/home_page.dart';
 import '../settings/settings_page.dart';
 
 class TabNavigatorRoutes {
