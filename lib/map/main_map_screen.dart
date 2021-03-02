@@ -33,13 +33,70 @@ class _MapMainScreenState extends State<MapMainScreen> {
               mapType: MapType.normal,
               myLocationButtonEnabled: true,
               initialCameraPosition: _kGooglePlex,
-              onMapCreated: (GoogleMapController controller){
+              onMapCreated: (GoogleMapController controller) {
                 _controllerGoogleMap.complete(controller);
                 newGoogleMapController = controller;
               },
             ),
+            Positioned(
+              left: 0.0,
+              right: 0.0,
+              bottom: 0.0,
+
+              child: Container(
+                height: 120.0,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(18.0),
+                    topLeft: Radius.circular(18.0),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black,
+                      blurRadius: 16.0,
+                      offset: Offset(0.7, 0.7),
+                      spreadRadius: 0.5,
+                    ),
+                  ],
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(5.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black54,
+                              blurRadius: 6.0,
+                              offset: Offset(0.7, 0.7),
+                              spreadRadius: 0.5,
+                            ),
+                          ],
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            children: [
+                              Icon(Icons.search, color: Colors.blueAccent),
+                              SizedBox(
+                                width: 10.0,
+                              ),
+                              Text("Search Location"),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
           ],
-        )
-    );
+        ));
   }
 }
