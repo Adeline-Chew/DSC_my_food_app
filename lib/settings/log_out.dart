@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:my_food/settings/settings_page.dart';
 
 class LogOut extends StatelessWidget {
   final Color themeColour = Colors.deepOrange[100];
@@ -49,12 +48,7 @@ class LogOut extends StatelessWidget {
                             fontWeight: FontWeight.bold),
                         textAlign: TextAlign.left,
                       ),
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SettingsPage(),
-                        ),
-                      ),
+                      onTap: () => Navigator.pop(context),
                     ),
                     SizedBox(width: 180),
                     InkWell(
@@ -66,12 +60,7 @@ class LogOut extends StatelessWidget {
                             fontWeight: FontWeight.bold),
                         textAlign: TextAlign.right,
                       ),
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SettingsPage(),
-                        ),
-                      ),
+                     onTap: () => Navigator.pop(context),
                     ),
                   ],
                 ),
