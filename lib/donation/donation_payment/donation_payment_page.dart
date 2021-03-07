@@ -8,23 +8,26 @@ class DonationPaymentPage extends StatelessWidget {
   final Color themeColour = Colors.deepOrange[100];
   final Color fontColour = Colors.black87;
   final Color boxColour = Colors.white;
+  final Color backgroundColour = Color(0xFFEEEEEE);
 
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CupertinoNavigationBar(
-          backgroundColor: themeColour,
-          leading: CupertinoNavigationBarBackButton(
-            color: fontColour,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          middle: Text(
-            "Donate",
-            style: TextStyle(fontSize: 18.0),
-          ),
+      appBar: CupertinoNavigationBar(
+        backgroundColor: themeColour,
+        leading: CupertinoNavigationBarBackButton(
+          color: fontColour,
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
-        body: _buildContent(context));
+        middle: Text(
+          "Donate",
+          style: TextStyle(fontSize: 18.0),
+        ),
+      ),
+      body: _buildContent(context),
+      backgroundColor: backgroundColour,
+    );
   }
 
   Widget _buildContent(BuildContext context) {

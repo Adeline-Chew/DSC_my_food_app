@@ -15,7 +15,6 @@ class DonationMainPage extends StatelessWidget {
         toolbarHeight: 0.0,
       ),
       body: _buildContent(context),
-      backgroundColor: themeColour,
     );
   }
 

@@ -16,25 +16,28 @@ class CustomPaymentPage extends StatelessWidget {
   final String subtitle2;
   final Color themeColour = Colors.deepOrange[100];
   final Color fontColour = Colors.black87;
+  final Color backgroundColour = Color(0xFFEEEEEE);
   final Color boxColour = Colors.white;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CupertinoNavigationBar(
-          backgroundColor: themeColour,
-          leading: CupertinoNavigationBarBackButton(
-            color: fontColour,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          middle: Text(
-            "Payment Confirmation",
-            style: TextStyle(fontSize: 18.0),
-          ),
+      appBar: CupertinoNavigationBar(
+        backgroundColor: themeColour,
+        leading: CupertinoNavigationBarBackButton(
+          color: fontColour,
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
-        body: _buildContent(context));
+        middle: Text(
+          "Payment Confirmation",
+          style: TextStyle(fontSize: 18.0),
+        ),
+      ),
+      body: _buildContent(context),
+      backgroundColor: backgroundColour,
+    );
   }
 
   Widget _buildContent(BuildContext context) {
