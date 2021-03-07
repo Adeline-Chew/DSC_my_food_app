@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_food/settings/change_theme.dart';
 
 class SettingsPage extends StatelessWidget {
   // Function used as a testing callback function
@@ -34,7 +35,10 @@ class SettingsPage extends StatelessWidget {
               // Think twice about this part, a bit messy to update state
               SettingsTiles("Change Username", changeUserName),
               Divider(height: 30.0),
-              SettingsTiles("I dunno", changeUserName),
+              SettingsTiles("Change Current Theme", () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ChangeTheme()));
+              }),
               Divider(height: 30.0),
               SettingsTiles("Quit", changeUserName),
               Divider(height: 30.0),
