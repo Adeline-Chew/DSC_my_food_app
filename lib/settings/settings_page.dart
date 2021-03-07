@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_food/settings/change_theme.dart';
-
+import 'package:my_food/settings/log_out.dart';
 import 'package:my_food/settings/view_profile.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -52,7 +52,10 @@ class SettingsPage extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => ChangeTheme()));
               }),
               Divider(height: 30.0),
-              SettingsTiles("Quit", changeUserName),
+              SettingsTiles("Quit", () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LogOut()));
+              }),
               Divider(height: 30.0),
               SizedBox(
                   height: 100.0,
