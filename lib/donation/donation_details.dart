@@ -2,36 +2,33 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_food/donation/donation_common_widgets/donate_button.dart';
 import 'package:my_food/donation/donation_common_widgets/event_card_button.dart';
-import 'package:my_food/donation/donation_payment_page.dart';
+import 'package:my_food/donation/donation_payment/donation_payment_page.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class DonationDetails extends StatelessWidget {
+  final Color themeColour = Colors.deepOrange[100];
+  final Color fontColour = Colors.black87;
+  final Color progressBarColour = Color(0xFF9CADA4);
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: _buildAppBarTitle(),
-        backgroundColor: Color(0xFFFFCCBC),
-        toolbarHeight: 80.0,
-        elevation: 0.0,
-      ),
-      body: _buildContent(context),
-    );
-  }
-
-
-  Widget _buildAppBarTitle() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text(
-          "Details",
-          textAlign: TextAlign.left,
-          style: TextStyle(fontSize: 25.0, color: Colors.black),
+        appBar: CupertinoNavigationBar(
+          
+          backgroundColor: themeColour,
+          leading: CupertinoNavigationBarBackButton(
+            color: fontColour,
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+          middle: Text(
+            "Details",
+            style: TextStyle(fontSize: 20),
+          ),
         ),
-      ],
-    );
+        body: _buildContent(context));
   }
 
   Widget _buildContent(BuildContext context) {
@@ -46,19 +43,18 @@ class DonationDetails extends StatelessWidget {
       children: <Widget>[
         Container(
           decoration: BoxDecoration(
-            color: Color(0xFFFFCCBC),
+            color: themeColour,
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(40.0),
               bottomRight: Radius.circular(40.0),
             ),
           ),
           child: SizedBox(
-            height: 300.0,
-            child: Container (
-              padding: EdgeInsets.fromLTRB(30, 0, 30, 30),
-              child: Image.asset("lib/image/donation.jpg"),
-            )
-          ),
+              height: 300.0,
+              child: Container(
+                padding: EdgeInsets.fromLTRB(30, 0, 30, 30),
+                child: Image.asset("lib/image/donation.jpg"),
+              )),
         ),
         SizedBox(height: 16.0),
       ],
@@ -82,7 +78,7 @@ class DonationDetails extends StatelessWidget {
         children: <Widget>[
           Text(
             "Support Families in Nigeria",
-            style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+            style: TextStyle(color: fontColour, decoration: TextDecoration.none, fontSize: 20.0, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: bigSpace),
           Text(
@@ -105,12 +101,11 @@ class DonationDetails extends StatelessWidget {
             style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.w300),
           ),
           SizedBox(height: 6.0),
-
           LinearPercentIndicator(
             width: 370.0,
             lineHeight: 12.0,
             percent: 0.8,
-            progressColor: Color(0xFF9CADA4),
+            progressColor: progressBarColour,
           ),
           SizedBox(height: 6.0),
           Text(
@@ -122,9 +117,7 @@ class DonationDetails extends StatelessWidget {
             "Food bank involved",
             style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.normal),
           ),
-
           SizedBox(height: smallSpace),
-
           CarouselSlider.builder(
             itemCount: 4,
             options: CarouselOptions(
@@ -135,14 +128,13 @@ class DonationDetails extends StatelessWidget {
             ),
             itemBuilder: (context, index, realIdx) {
               return Container(
-                child: EventCardButton(
-                    eventTitle: "Yayasan Food Bank",
-                    image: images[index],
-                    context: context,
-                    margin: EdgeInsets.symmetric(horizontal: 5.0),
-                    page: DonationPaymentPage(),
-              )   
-              );
+                  child: EventCardButton(
+                eventTitle: "Yayasan Food Bank",
+                image: images[index],
+                context: context,
+                margin: EdgeInsets.symmetric(horizontal: 5.0),
+                page: DonationPaymentPage(),
+              ));
             },
           ),
           Divider(height: bigSpace),
