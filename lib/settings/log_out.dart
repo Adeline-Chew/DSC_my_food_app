@@ -56,7 +56,7 @@ class LogOut extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(width: 186),
+                    SizedBox(width: 180),
                     InkWell(
                       child: Text(
                         "YES",
