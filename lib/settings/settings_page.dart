@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_food/settings/change_theme.dart';
 
+import 'package:my_food/settings/view_profile.dart';
+
 class SettingsPage extends StatelessWidget {
   // Function used as a testing callback function
   void changeUserName() {
@@ -33,7 +35,17 @@ class SettingsPage extends StatelessWidget {
           child: ListView(
             children: <Widget>[
               // Think twice about this part, a bit messy to update state
-              SettingsTiles("Change Username", changeUserName),
+              SettingsTiles(
+                "Change Username", 
+                () => {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ViewProfile()
+                    )
+                  )
+                }
+              ),
               Divider(height: 30.0),
               SettingsTiles("Change Current Theme", () {
                 Navigator.push(context,
