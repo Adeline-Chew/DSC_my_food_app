@@ -124,7 +124,7 @@ class DonationDetails extends StatelessWidget {
               height: 214,
               aspectRatio: 2,
               autoPlay: true,
-              autoPlayInterval: Duration(seconds: 5),
+              autoPlayInterval: Duration(seconds: 3),
             ),
             itemBuilder: (context, index, realIdx) {
               return Container(

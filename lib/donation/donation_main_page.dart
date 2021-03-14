@@ -11,10 +11,26 @@ class DonationMainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: _buildAppBarTitle(),
         backgroundColor: themeColour,
-        toolbarHeight: 0.0,
+        toolbarHeight: 80.0,
       ),
       body: _buildContent(context),
+    );
+  }
+
+  Widget _buildAppBarTitle() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Center(
+          child: Text(
+            "Donation",
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 25.0, color: fontColour),
+          ),
+        ),
+      ],
     );
   }
 
@@ -22,28 +38,6 @@ class DonationMainPage extends StatelessWidget {
     final double space = 16.0;
     return ListView(
       children: <Widget>[
-        SizedBox(
-          height: 100,
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              color: themeColour,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  blurRadius: 4,
-                  offset: Offset(0, 4), // changes position of shadow
-                ),
-              ],
-            ),
-            child: Center(
-              child: Text(
-                "Donation",
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ),
-        ),
         Padding(
           padding: EdgeInsets.only(left: 20.0, right: 20.0),
           child: Column(

@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:my_food/donation/donation_main_page.dart';
 
 class PaymentSuccessfulPage extends StatelessWidget {
   final Color themeColour = Colors.deepOrange[100];
@@ -66,10 +65,7 @@ class PaymentSuccessfulPage extends StatelessWidget {
                       style: TextStyle(
                           color: themeColour, fontWeight: FontWeight.bold),
                     ),
-                    onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => DonationMainPage())),
+                    onTap: () => Navigator.pop(context),
                   ),
                   alignment: Alignment.bottomRight,
                 ),
