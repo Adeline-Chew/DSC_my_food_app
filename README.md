@@ -10,7 +10,7 @@ More information about our goal: https://developers.google.com/community/dsc-sol
 
 ## Inspiration
 
-We hope the developmenet of this mobile app may encourage society to help out the needy by easing the process of helping and reaching out to these people, especially during these times where many people are challenge to even acquiring the basic needs essential for survival.
+We hope the development of this mobile app may encourage society to help out the needy by easing the process of helping and reaching out to these people, especially during these times where many people are challenged to even acquiring the basic needs essential for survival.
 
 
 ## Mobile Application
@@ -20,19 +20,19 @@ We decided to develop our mobile application by using the _Flutter Framework_ as
 Our application generally consist of 5 main components/pages:
 1. Home Page
 
-    - A componenet that displays donations made, donation goals met and dicovering events around us.
+    - A component that displays donations made, donation goals met and dicovering events around us.
 2. Discovering Page
 
-    - A componenet that displays options to discover food banks around you and provide donating food to others.
+    - A component that displays options to discover food banks around you and provide donating food to others.
 3. Map Page
 
-    - A componenet that displays a map that locates nearby food banks.
+    - A component that displays a map that locates nearby food banks.
 4. Donation Page
 
-    - A componenet that displays options to support the needy through means of monetary donations.
+    - A component that displays options to support the needy through means of monetary donations.
 5. Settings Page
     
-    - A componenet that displays options to view current profile, change app themes and quit the app.
+    - A component that displays options to view current profile, change app themes and quit the app.
 
 ## Project Members
 
