@@ -12,7 +12,7 @@ class HomePageFirstSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: () => print("Tapped on firstSection!"),
+        onTap: () => print("Tapped"),
         child: Container(
             height: 190.0,
             color: defaultBackgroundColor,
@@ -42,27 +42,40 @@ class HomePageFirstSection extends StatelessWidget {
                               height: 100.0,
                               alignment: Alignment.center,
                               child:
-                                  // To make the CircularProgressIndicator widget bigger
                                   SizedBox(
                                       height: 80.0,
                                       width: 80.0,
-                                      // Need to include dependency
                                       child: CircularPercentIndicator(
                                         radius: 80.0,
                                         lineWidth: 8.0,
                                         percent:
-                                            0.6, // need to change this to a variable
+                                            0.6,
                                         center: Text("60%",
                                             style: secondaryTextStyle),
                                         progressColor: defaultBackgroundColor,
                                       ))),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          // Idea
+                          // Donated:  300
+                          // Target:   500
+                          Row(
                             children: <Widget>[
-                              Text(_donated, style: secondaryTextStyle),
-                              Text(_target, style: secondaryTextStyle)
-                            ],
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(_donated, style: secondaryTextStyle),
+                                  Text(_target, style: secondaryTextStyle)
+                                ],
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text("300", style: secondaryTextStyle),
+                                  Text("500", style: secondaryTextStyle)
+                                ]
+                              )
+                            ]
                           )
                         ]))
               ],

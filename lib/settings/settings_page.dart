@@ -36,7 +36,7 @@ class SettingsPage extends StatelessWidget {
             children: <Widget>[
               // Think twice about this part, a bit messy to update state
               SettingsTiles(
-                "Change Username", 
+                "View Profile", 
                 () => {
                   Navigator.push(
                     context,

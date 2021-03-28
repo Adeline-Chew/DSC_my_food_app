@@ -3,14 +3,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
 final Color defaultBackgroundColor = Colors.deepOrange[100];
-final List<Icon> icons = [
+final List<Icon> _icons = [
   Icon(Icons.person_rounded),
   Icon(FlutterIcons.gender_male_female_mco),
   Icon(Icons.email_rounded),
   Icon(Icons.contact_phone_rounded),
   Icon(FontAwesome.globe)
 ];
-final Map<String, String> userDetails = {
+final Map<String, String> _userDetails = {
   "Name": "Peter",
   "Gender": "Male",
   "Email": "peter1234@gmail.com",
@@ -33,8 +33,8 @@ class _ViewProfileState extends State<ViewProfile> {
   }
 
   Widget _buildContainer(int index) {
-    final String option = userDetails.keys.elementAt(index),
-        detail = userDetails[option];
+    final String option = _userDetails.keys.elementAt(index),
+        detail = _userDetails[option];
 
     return Container(
         height: 100.0,
@@ -46,7 +46,7 @@ class _ViewProfileState extends State<ViewProfile> {
         child: Align(
             alignment: Alignment.centerLeft,
             child: ListTile(
-              leading: icons[index],
+              leading: _icons[index],
               title: Text(option, style: TextStyle(fontSize: 20.0)),
               subtitle: Text(detail, style: TextStyle(fontSize: 18.0)),
             )));
@@ -63,7 +63,7 @@ class _ViewProfileState extends State<ViewProfile> {
             padding: EdgeInsets.all(20.0),
             child: ListView.separated(
                 separatorBuilder: (context, index) => Divider(height: 30.0),
-                itemCount: userDetails.length,
+                itemCount: _userDetails.length,
                 itemBuilder: (context, index) => this._buildContainer(index))));
   }
 }
