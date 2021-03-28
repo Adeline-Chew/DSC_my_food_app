@@ -1,16 +1,42 @@
-# my_food
+# my_Food
 
-A new Flutter application.
+my_Food is a mobile application that provides a platform that allows users to donate food or money for the people who are suffering from hunger.
 
-## Getting Started
+## Goals
 
-This project is a starting point for a Flutter application.
+By developing this mobile application, the goal we intend to acheive is **Goal 2, Zero Hunger**, where we can end hunger, acheive food security and improved nutrition, and promote sustainable agriculture, as we seek to address and provide our solution to 1 of the 17 Sustainable Development Goals of the United Nations.
 
-A few resources to get you started if this is your first Flutter project:
+More information about our goal: https://developers.google.com/community/dsc-solution-challenge/UN-goals?authuser=1#goal-2br-zero-hunger
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Inspiration
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+We hope the developmenet of this mobile app may encourage society to help out the needy by easing the process of helping and reaching out to these people, especially during these times where many people are challenge to even acquiring the basic needs essential for survival.
+
+
+## Mobile Application
+
+We decided to develop our mobile application by using the _Flutter Framework_ as it provides cross-platform capabilities, is relatively lightweight and integrates well with _Firebase_.
+
+Our application generally consist of 5 main components/pages:
+1. Home Page
+
+    - A componenet that displays donations made, donation goals met and dicovering events around us.
+2. Discovering Page
+
+    - A componenet that displays options to discover food banks around you and provide donating food to others.
+3. Map Page
+
+    - A componenet that displays a map that locates nearby food banks.
+4. Donation Page
+
+    - A componenet that displays options to support the needy through means of monetary donations.
+5. Settings Page
+    
+    - A componenet that displays options to view current profile, change app themes and quit the app.
+
+## Project Members
+
+1. Adeline Chew
+2. Hee Weng Sheng
+3. Isaac Lee
+4. Jo Yee Siang
